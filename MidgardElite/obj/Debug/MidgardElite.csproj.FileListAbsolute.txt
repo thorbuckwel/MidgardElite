@@ -1,1 +1,6 @@
 C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.exe.config
+C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.exe
+C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.pdb
+C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.csprojResolveAssemblyReference.cache
+C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.exe
+C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.pdb
