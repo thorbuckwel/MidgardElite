@@ -68,6 +68,8 @@
     <Compile Include="Class\Wizard.cs" />
     <Compile Include="CreateLoad\BuildPlayer.cs" />
     <Compile Include="CreateLoad\ListBuilder.cs" />
+    <Compile Include="Enum\ClassEnum.cs" />
+    <Compile Include="Enum\RaceEnum.cs" />
     <Compile Include="Factory\GameWorldFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Model\Creature.cs" />
@@ -78,12 +80,12 @@
     <Compile Include="Model\Weapon.cs" />
     <Compile Include="Mod\Modifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Race\Dwarves.cs" />
-    <Compile Include="Race\Elves.cs" />
-    <Compile Include="Race\Gnomes.cs" />
-    <Compile Include="Race\Half-orcs.cs" />
+    <Compile Include="Race\Dwarf.cs" />
+    <Compile Include="Race\Elf.cs" />
+    <Compile Include="Race\Gnome.cs" />
+    <Compile Include="Race\Half-orc.cs" />
     <Compile Include="Race\Halfling.cs" />
-    <Compile Include="Race\Half_elves.cs" />
+    <Compile Include="Race\Half_elf.cs" />
     <Compile Include="Race\Human.cs" />
     <Compile Include="Table\Tables.cs" />
     <Compile Include="ViewModels\GameSession.cs" />

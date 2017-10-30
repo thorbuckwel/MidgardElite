@@ -12,7 +12,7 @@ namespace Engine.CreateLoad
     {
         public static void BuildLocationList()
         {
-            using (var connection = new SqlConnection("Data Source = LAPTOP-9JPEH4UG; Initial Catalog = MidgardEliteWorld; Integrated Security = False"))
+            using (var connection = new SqlConnection("Server = (local); Database = MidgardEliteWorld; Trusted_Connection = True;"))
             {
                 using (var command = connection.CreateCommand())
                 {
@@ -27,8 +27,8 @@ namespace Engine.CreateLoad
                         string name = reader["Name"].ToString();
                         string description = reader["Description"].ToString();
                         int zone = (int.Parse(reader["Zone"].ToString()));
-                        int xCord = (int.Parse(reader["XCord"].ToString()));
-                        int yCord = (int.Parse(reader["YCord"].ToString()));
+                        int xCord = (int.Parse(reader["XCoord"].ToString()));
+                        int yCord = (int.Parse(reader["YCoord"].ToString()));
                         string climate = reader["Climate"].ToString();
                         string terrain = reader["Terrain"].ToString();
                         string effect = reader["Effect"].ToString();
@@ -36,6 +36,7 @@ namespace Engine.CreateLoad
 
                         GameWorld._locations.Add(new Location(id, name, zone, xCord, yCord, description, climate, terrain, effect, exits));
                     }
+                    connection.Close();
                 }
             }
         }

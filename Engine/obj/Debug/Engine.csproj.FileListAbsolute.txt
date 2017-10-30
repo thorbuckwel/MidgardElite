@@ -1,1 +1,5 @@
+C:\Users\Thor\Documents\GitHub\MidgardElite\Engine\bin\Debug\Engine.dll
+C:\Users\Thor\Documents\GitHub\MidgardElite\Engine\bin\Debug\Engine.pdb
+C:\Users\Thor\Documents\GitHub\MidgardElite\Engine\obj\Debug\Engine.dll
+C:\Users\Thor\Documents\GitHub\MidgardElite\Engine\obj\Debug\Engine.pdb
 C:\Users\Thor\Documents\GitHub\MidgardElite\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache

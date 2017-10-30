@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 using Engine;
 using Engine.Model;
 using Engine.CreateLoad;
+using MidgardElite.Opening;
 
 namespace MidgardElite
 {
-    public class Program
+    class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            int x = 0;
-            Console.ForegroundColor = ConsoleColor.Red;       // The text will be White.
+            Console.ForegroundColor = ConsoleColor.White;       // The text will be White.
+            ListBuilder.BuildLocationList();
+            WelcomeScreen.Welcome();
             
-            #region While loop
+            
+            //#region While loop
             // Infinite loop, until the user types "exit"
 
             
@@ -55,7 +58,7 @@ namespace MidgardElite
             //    // If the user typed something, try to determine what to do
             //    //ParseInput(cleanedInput);
             //}
-            #endregion
+        //    #endregion
         }
 
         public static void Build()
