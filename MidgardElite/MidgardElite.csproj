@@ -61,11 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Attack.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\Equipt.cs" />
+    <Compile Include="Commands\Get.cs" />
+    <Compile Include="Commands\Inventory.cs" />
     <Compile Include="CreateLoad\NewPlayer.cs" />
+    <Compile Include="Commands\HelpFile.cs" />
+    <Compile Include="Commands\ItemDrop.cs" />
+    <Compile Include="Location\CurrentLoctionClass.cs" />
+    <Compile Include="Commands\Look.cs" />
     <Compile Include="Opening\WelcomeScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Words\CapWord.cs" />
+    <Compile Include="Commands\Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

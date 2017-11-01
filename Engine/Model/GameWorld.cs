@@ -13,7 +13,7 @@ namespace Engine.Model
         //public static readonly List<NPC> NPCs = new List<NPC>();
         //public static readonly List<Weapon> Weapons = new List<Weapon>();       // To hold objects of weapons
         // public static readonly List<Item> Items = new List<Item>();              // To hold objects of Items
-        // public static readonly List<Room> Location = new List<Room>();          // To hold objects of rooms 
+        //public static readonly List<Lo> Location = new List<Room>();          // To hold objects of rooms 
         #endregion
         public static readonly List<Location> _locations = new List<Location>();
 
@@ -22,7 +22,7 @@ namespace Engine.Model
         {
             foreach (Location room in _locations)
             {
-                if (room.Zone == zone && room.XCord == xCord && room.YCord == yCord)
+                if (room.Zone == zone && room.XCoord == xCord && room.YCoord == yCord)
                 {
                     return room;
                 }

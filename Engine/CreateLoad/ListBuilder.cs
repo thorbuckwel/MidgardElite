@@ -12,14 +12,18 @@ namespace Engine.CreateLoad
     {
         public static void BuildLocationList()
         {
-            using (var connection = new SqlConnection("Server = (local); Database = MidgardEliteWorld; Trusted_Connection = True;"))
-            {
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM Locations";
-                    connection.Open();
+            string connetionString = null;
+            connetionString = SqlCommands.ConnectionString;
 
-                    var reader = command.ExecuteReader();
+            using (SqlConnection cnn = new SqlConnection(connetionString))
+            {
+                string sql = SqlCommands.SelectAllLocation;
+                cnn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                {
+                    #region Reader
+                    var reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
@@ -34,10 +38,12 @@ namespace Engine.CreateLoad
                         string effect = reader["Effect"].ToString();
                         string exits = reader["Exits"].ToString();
 
+                        #endregion
                         GameWorld._locations.Add(new Location(id, name, zone, xCord, yCord, description, climate, terrain, effect, exits));
                     }
-                    connection.Close();
+                    
                 }
+                cnn.Close();
             }
         }
     }

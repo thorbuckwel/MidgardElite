@@ -60,19 +60,20 @@
     <Compile Include="Class\Cleric.cs" />
     <Compile Include="Class\Druid.cs" />
     <Compile Include="Class\Fighter.cs" />
+    <Compile Include="Class\HitDice.cs" />
     <Compile Include="Class\Monk.cs" />
     <Compile Include="Class\Paladin.cs" />
     <Compile Include="Class\Ranger.cs" />
     <Compile Include="Class\Rogue.cs" />
     <Compile Include="Class\Sorcerer.cs" />
     <Compile Include="Class\Wizard.cs" />
-    <Compile Include="CreateLoad\BuildPlayer.cs" />
     <Compile Include="CreateLoad\ListBuilder.cs" />
     <Compile Include="Enum\ClassEnum.cs" />
     <Compile Include="Enum\RaceEnum.cs" />
     <Compile Include="Factory\GameWorldFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Model\Creature.cs" />
+    <Compile Include="Model\CustomRand.cs" />
     <Compile Include="Model\GameItem.cs" />
     <Compile Include="Model\GameWorld.cs" />
     <Compile Include="Model\Location.cs" />
@@ -87,11 +88,15 @@
     <Compile Include="Race\Halfling.cs" />
     <Compile Include="Race\Half_elf.cs" />
     <Compile Include="Race\Human.cs" />
+    <Compile Include="SqlCommands.cs" />
+    <Compile Include="WordFormat\SplitWord.cs" />
+    <Compile Include="WorldSave\SaveData.cs" />
     <Compile Include="Table\Tables.cs" />
     <Compile Include="ViewModels\GameSession.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Docs\IDs.txt" />
     <Content Include="Docs\ToDoList.txt" />
   </ItemGroup>
   <ItemGroup>

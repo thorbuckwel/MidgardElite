@@ -8,13 +8,13 @@ namespace Engine.Model
 {
     public class Location
     {
-        public Location(int id, string name, int zone, int xCord, int yCord, string description, string climate, string terrain, string effect, string exits)
+        public Location(int id, string name, int zone, int xCoord, int yCoord, string description, string climate, string terrain, string effect, string exits)
         {
             ID = id;
             Name = name;
             Zone = zone;
-            XCord = xCord;
-            YCord = yCord;
+            XCoord = xCoord;
+            YCoord = yCoord;
             Description = description;
             Climate = climate;
             Terrain = terrain;
@@ -26,8 +26,8 @@ namespace Engine.Model
         public int ID { get; set; }
         public string Name { get; set; }
         public int Zone { get; set; }
-        public int XCord { get; set; }
-        public int YCord { get; set; }
+        public int XCoord { get; set; }
+        public int YCoord { get; set; }
         public string Description { get; set; }
         public string Climate { get; set; }
         public string Terrain { get; set; }

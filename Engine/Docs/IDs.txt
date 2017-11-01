@@ -1,0 +1,6 @@
+﻿1-50,000 Room IDs
+100,001 - 150,000 Player IDs
+200,001 - 250,000 Monster IDs
+300,001 - 350,000 Weapon IDs
+350,001 - 400,000 Item IDs
+400,001 - 450,000 Armor IDs

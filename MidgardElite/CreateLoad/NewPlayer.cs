@@ -1,16 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using MidgardElite.Words;
 using System.Data.SqlClient;
+using Engine.Enum;
+using Engine.Model;
+using Engine.ViewModels;
+using Engine.WorldSave;
+using Engine.WordFormat;
+using Engine.Class;
 
 namespace MidgardElite.CreateLoad
 {
     public static class NewPlayer
     {
+
         public static void CreatePlayer()
         {
             string userInput;                   // To hold the user's input.
@@ -28,15 +36,15 @@ namespace MidgardElite.CreateLoad
 
                 if (userInput.ToLower() == "no" || userInput.ToLower() == "n")
                 {
-                    //validAnswer = true;
-                    //Console.WriteLine("What is your name?");
-                    //userInput = CapWord.FirstCharToUpper(Console.ReadLine());
+                    validAnswer = true;
+                    Console.WriteLine("What is your name?");
+                    userInput = SplitWord.FirstCharToUpper(Console.ReadLine());
                     //Load.LoadGameData(userInput.ToLower());         // Go to the Load class and exacute the LoadGame method.
                 }
                 else if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
                 {
                     validAnswer = true;
-                    MakePlayer();                // Go to CreatePlayer and exacute the CreatePlayerInst method. 
+                    MakePlayer(ref userInput);                // Go to MakePLayer to create player. 
                 }
                 else
                 {
@@ -45,101 +53,142 @@ namespace MidgardElite.CreateLoad
             }
         }
 
-        public static void MakePlayer()
+        public static void MakePlayer(ref string userInput)
         {
-            string name;
+            #region Variables
+            int id = getID();
+            string name = "";
             int zone = 0;
-            string className;
-            string raceName;
-            string Description;
-            int str, dex, agi, con, pInt, wis;
-            int cha, ac, gold, hp, mp, xp;
+            int xCoord = 0;
+            int yCoord = 0;
+            string className = "";
+            string raceName = "";
+            string description = "";       
+            int str = 0, dex = 0, agi = 0, con = 0, pInt = 0, wis = 0;
+            int cha = 0, ac, gold, hp, mp, xp, maxHp = 0, maxMp = 0;
             bool isAlive;
-            bool has = true;
+            bool hasName = true;
+            bool hasClass = false;
+            bool hasRace = false;
+            #endregion
 
-            while (has == true)
+            #region Name
+            while (hasName == true)
             {
                 Console.WriteLine("Give me your name.");
                 Console.Write("> ");
-                name = Console.ReadLine();
-                name = name.ToLower();
-                has = CheckName(name);
 
-                if (has == true)
+                name = Console.ReadLine();
+                name = SplitWord.FirstCharToUpper(name);
+                hasName = CheckName(name);
+
+                if (hasName == true)
                 {
                     Console.WriteLine("Name already in use please choose another name.");
                 }
                 else
                 {
-                    Console.WriteLine("Good Name!");
-                    // TODO: Another Method to get Race.
+                    Console.WriteLine("Good Name!");                    
                 }
             }
+            #endregion
 
+            #region Class
 
-            //while (validClass == false)
-            //{
-            //    Console.WriteLine("What class would you like to be?");
-            //    Console.ForegroundColor = ConsoleColor.Yellow;
-            //    Console.Write("Warrior, Mage, Thief > ");
-            //    className = Console.ReadLine().ToLower();
-            //    Console.ForegroundColor = ConsoleColor.White;
+            while (hasClass == false)
+            {
+                Console.WriteLine("Choose a Class");
+                string _class = null;
 
-            //    if (className == "warrior")
-            //    {
-            //        gold = 100;
-            //        validClass = true;
-            //    }
-            //    else if (className == "mage")
-            //    {
-            //        gold = 150;
-            //        validClass = true;
-            //    }
-            //    else if (className == "thief")
-            //    {
-            //        gold = 200;
-            //        validClass = true;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Not a valid class");
-            //    }
-            //}
+                foreach (string c in Enum.GetNames(typeof(ClassEnum)))
+                {
+                    if (_class == null)
+                        _class = c;
+                    else
+                        _class += ", " + c;
+                }
+                _class.ToArray();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("<" + _class + ">");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("Class -  ");
+                userInput = Console.ReadLine();
 
-            //while (validRace == false)
-            //{
-            //    Console.ForegroundColor = ConsoleColor.White;
-            //    Console.WriteLine("What race would you like?");
-            //    Console.ForegroundColor = ConsoleColor.Yellow;
-            //    Console.Write("Human, Elf, Dwarf > ");
-            //    raceName = Console.ReadLine().ToLower();
+                if (!Enum.IsDefined(typeof(ClassEnum), userInput))
+                {
+                    Console.WriteLine(userInput + " is not a valid Class");
+                }
+                else
+                {
+                    Console.WriteLine(userInput + " is a good class");
+                    className = userInput;
+                    hasClass = true;
+                }
+            }
+            #endregion
 
-            //    if (raceName == "human")
-            //    {
-            //        validRace = true;
-            //        hp = 100;
-            //    }
-            //    else if (raceName == "elf")
-            //    {
-            //        validRace = true;
-            //        hp = 80;
-            //    }
-            //    else if (raceName == "dwarf")
-            //    {
-            //        validRace = true;
-            //        hp = 120;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Not a Valid entry.");
-            //    }
-            //}            
+            string hitDice = HitDice.GetHitDice(className);
 
-            //Console.ForegroundColor = ConsoleColor.White;
-            //Player._player = new Player(name, CapWord.FirstCharToUpper(className), CapWord.FirstCharToUpper(raceName), gold, hp, hp, World.WeaponByID(103), false, true, faction, alignment);
-            //Console.WriteLine("Creating character data, please wait!");
-            //SaveData.SaveGameData(Player._player);
+            #region Race
+            while (hasRace == false)
+            {
+                Console.WriteLine("Choose a Race");
+                string _race = null;
 
+                foreach (string c in Enum.GetNames(typeof(RaceEnum)))
+                {
+                    if (_race == null)
+                        _race = c;
+                    else
+                        _race += ", " + c;
+                }
+
+                _race.ToArray();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("<" + _race + ">");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("Race -  ");
+                userInput = Console.ReadLine();
+
+                if (!Enum.IsDefined(typeof(RaceEnum), userInput))
+                {
+                    Console.WriteLine(userInput + " is not a valid Class");
+                }
+                else
+                {
+                    Console.WriteLine(userInput + " is a good class");
+                    className = userInput;
+                    hasRace = true;
+                }
+            }
+            #endregion
+
+            #region Description
+            Console.WriteLine("Please write a description. (If you want to do this later type 'Skip'");
+            userInput = Console.ReadLine();
+
+            if (userInput.ToLower() != "skip")
+                description = userInput;
+            #endregion
+
+            #region Stats
+            setStats(ref str, ref dex, ref agi, ref con, ref pInt, ref wis, ref cha, ref userInput);
+            ac = 10;
+            gold = 0;
+            maxHp = SplitWord.SplitDice(hitDice);
+            hp = maxHp;            
+            mp = 0;
+            xp = 0;
+            #endregion
+
+            isAlive = true;
+
+            ObservableCollection<GameItem> inventory = new ObservableCollection<GameItem>();
+
+            GameSession.CurrentPlayer = new Player(id, zone, name, raceName, className, description, xp, hp, maxHp, mp, maxMp, str, dex, agi, con, pInt, wis, cha, ac, isAlive,
+                        gold, inventory, xCoord, yCoord);
+
+            SaveData.SavePlayer(GameSession.CurrentPlayer);
         }
 
         public static Boolean CheckName(string name)
@@ -175,5 +224,66 @@ namespace MidgardElite.CreateLoad
                 return has;
             }
         }
+
+        public static void setStats(ref int str, ref int dex, ref int agi, ref int con, ref int pInt, ref int wis, ref int cha, ref string userInput)
+        {
+            str = CustomRand.NumberBetween(1, 18);
+            dex = CustomRand.NumberBetween(1, 18);
+            agi = CustomRand.NumberBetween(1, 18);
+            con = CustomRand.NumberBetween(1, 18);
+            pInt = CustomRand.NumberBetween(1, 18);
+            wis = CustomRand.NumberBetween(1, 18);
+            cha = CustomRand.NumberBetween(1, 18);
+
+
+            Console.WriteLine("Strength = " + str.ToString());
+            Console.WriteLine("Dexterity = " + dex.ToString());
+            Console.WriteLine("Constitution = " + con.ToString());
+            Console.WriteLine("Intelligence = " + pInt.ToString());
+            Console.WriteLine("Wisdom = " + wis.ToString());
+            Console.WriteLine("Charisma = " + cha.ToString());
+            Console.WriteLine("Agility = " + agi.ToString());
+
+            Console.WriteLine("");
+            Console.WriteLine("Keep these scores? >");
+            userInput = Console.ReadLine();
+
+            if (userInput.ToLower() == "no" )
+                setStats(ref str, ref dex, ref agi, ref con, ref pInt, ref wis, ref cha, ref userInput);
+
+        }
+
+        public static int getID()
+        {
+            List<String> ids = new List<String>();
+            int newID;
+            int IDs = 0;
+
+            using (var connection = new SqlConnection("Server = (local); Database = MidgardEliteWorld; Trusted_Connection = True;"))
+            {
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM Players";
+                    connection.Open();
+
+                    var reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string dbId = reader["Id"].ToString();
+                        ids.Add(dbId);
+                    }
+                    connection.Close();
+
+                    int index = ids.Count - 1;
+                    newID = Int32.Parse(ids[index]) + 1;
+                    
+                }              
+
+                return newID;
+            }
+        }
+
+        
     }
 }

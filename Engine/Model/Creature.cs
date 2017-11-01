@@ -11,8 +11,8 @@ namespace Engine.Model
 {
     public class Creature
     {
-        public Creature(int id, int zone, string name, string description, int xp, int hp, int mp, int str, int dex, int agi,
-                        int con, int cint, int wis, int cha, int ac, char isAlive, int gold, ObservableCollection<GameItem> inventory)
+        public Creature(int id, int zone, string name, string description, int xp, int hp, int maxHp, int mp, int maxMp, int str, int dex, int agi,
+                        int con, int cint, int wis, int cha, int ac, bool isAlive, int gold, ObservableCollection<GameItem> inventory)
         {
             ID = id;
             Zone = zone;
@@ -20,7 +20,9 @@ namespace Engine.Model
             Description = description;
             XP = xp;            
             Hp = hp;
+            MaxHp = maxHp;
             Mp = mp;
+            MaxMp = maxMp;
 
             #region Stats and Mods
             Str = str;
@@ -140,7 +142,9 @@ namespace Engine.Model
         public string Description { get; set; }
         public int XP { get; set; }
         public int Hp { get; set; }
+        public int MaxHp { get; set; }
         public int Mp { get; set; }
+        public int MaxMp { get; set; }
         public int Str { get; set; }
         public int StrMod { get; set; }
         public int Dex { get; set; }
@@ -160,7 +164,7 @@ namespace Engine.Model
         public int Reflex { get; set; }
         public int Will { get; set; }
         public int BAB { get; set; }
-        public char IsAlive { get; set; }
+        public bool IsAlive { get; set; }
         public int Gold { get; set; }
         public ObservableCollection<GameItem> Inventory { get; set; }
         public int FortBS { get; set; }

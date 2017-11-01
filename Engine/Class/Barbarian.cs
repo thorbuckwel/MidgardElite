@@ -9,8 +9,13 @@ namespace Engine.Class
 {
     public static class Barbarian
     {
-        public static int DetermineBaB(ref Player _player)
+        public static string HitDice()
         {
+            return "1D6";
+        }
+
+        public static int DetermineBaB(ref Player _player)
+        {            
             if (_player.Level == 1)
                 return 1;
             else if (_player.Level == 2)
