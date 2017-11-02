@@ -5,8 +5,6 @@ using System.Data.SqlClient;
 using Engine.WordFormat;
 using System.Linq;
 using Engine.Enum;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MidgardElite.NewPlayer
 {

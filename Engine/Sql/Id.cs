@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Engine.Sql
 {
@@ -31,10 +29,8 @@ namespace Engine.Sql
                         ids.Add(dbId);
                     }
                     connection.Close();
-
-                    int index = ids.Count - 1;              // Count will return how many but the index starts with 0
-                    newID = Int32.Parse(ids[index]) + 1;    // Take the last Id and then add 1.
-
+                                                      
+                    newID = Int32.Parse(ids.Last()) + 1; ;    // Take the last Id and then add 1.
                 }
 
                 return newID;
