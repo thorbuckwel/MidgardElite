@@ -13,7 +13,6 @@ namespace Engine.Sql
         {
             List<String> ids = new List<String>();
             int newID;
-            int IDs = 0;
             string connetionString = null;
             connetionString = SqlCommands.ConnectionString;
 
@@ -33,8 +32,8 @@ namespace Engine.Sql
                     }
                     connection.Close();
 
-                    int index = ids.Count - 1;
-                    newID = Int32.Parse(ids[index]) + 1;
+                    int index = ids.Count - 1;              // Count will return how many but the index starts with 0
+                    newID = Int32.Parse(ids[index]) + 1;    // Take the last Id and then add 1.
 
                 }
 

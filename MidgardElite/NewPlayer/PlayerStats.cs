@@ -9,7 +9,7 @@ using Engine.WordFormat;
 
 namespace MidgardElite.NewPlayer
 {
-    public static class PlayerStats
+    public class PlayerStats
     {
         public static int str = 0;
         public static int dex = 0;
@@ -23,7 +23,7 @@ namespace MidgardElite.NewPlayer
         public static int mp = 0;
         public static int maxMp = 0;
         public static string hitDice = HitDice.GetHitDice(NameClassRace.className);
-        
+
         public static void DetermineStats(ref string userInput)
         {
             str = CustomRand.NumberBetween(1, 18);
@@ -41,12 +41,12 @@ namespace MidgardElite.NewPlayer
         public static void DisplayResults(ref string userInput)
         {
             Console.WriteLine("Your stats will be:");
-            Console.WriteLine("Strength : ", str);
-            Console.WriteLine("Dexterity : ", dex);
-            Console.WriteLine("Constitution : ", con);
-            Console.WriteLine("Intelligence : ", pInt);
-            Console.WriteLine("Wisdom : ", wis);
-            Console.WriteLine("Charisma : ", cha);
+            Console.WriteLine("Strength : " + str);
+            Console.WriteLine("Dexterity : " + dex);
+            Console.WriteLine("Constitution : " + con);
+            Console.WriteLine("Intelligence : " + pInt);
+            Console.WriteLine("Wisdom : " + wis);
+            Console.WriteLine("Charisma : " + cha);
             Console.WriteLine("Keep these scores? Y/N:");
             userInput = Console.ReadLine();
 

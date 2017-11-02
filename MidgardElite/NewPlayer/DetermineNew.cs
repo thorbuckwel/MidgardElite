@@ -26,9 +26,9 @@ namespace MidgardElite.NewPlayer
 
                 if (userInput.ToLower() == "no" || userInput.ToLower() == "n")
                 {
-                    validAnswer = true;
-                    Console.WriteLine("What is your name?");
-                    userInput = SplitWord.FirstCharToUpper(Console.ReadLine());
+                    //validAnswer = true;
+                    //Console.WriteLine("What is your name?");
+                    //userInput = SplitWord.FirstCharToUpper(Console.ReadLine());
                     //Load.LoadGameData(userInput.ToLower());         // Go to the Load class and exacute the LoadGame method.
                 }
                 else if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")

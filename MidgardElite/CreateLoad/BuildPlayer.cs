@@ -53,7 +53,6 @@ namespace MidgardElite.CreateLoad
         {
             List<String> ids = new List<String>();
             int newID;
-            int IDs = 0;
 
             using (var connection = new SqlConnection("Server = (local); Database = MidgardEliteWorld; Trusted_Connection = True;"))
             {

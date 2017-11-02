@@ -98,7 +98,7 @@ namespace MidgardElite.NewPlayer
                 Console.Write("Class -  ");
                 userInput = Console.ReadLine();
 
-                if (Enum.IsDefined(typeof(ClassEnum), userInput))
+                if (!Enum.IsDefined(typeof(ClassEnum), userInput))
                 {
                     Console.WriteLine(userInput + " is not a valid Class");
                 }

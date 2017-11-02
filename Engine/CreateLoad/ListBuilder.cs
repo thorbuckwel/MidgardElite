@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Engine.Model;
+using Engine.Sql;
 
 namespace Engine.CreateLoad
 {
@@ -18,7 +19,7 @@ namespace Engine.CreateLoad
 
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
-                string sql = SqlCommands.UpdatePlayer;
+                string sql = SqlCommands.selectAllLocation;
                 cnn.Open();
 
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))

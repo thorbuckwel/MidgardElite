@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Engine;
-using Engine.Model;
 using Engine.CreateLoad;
 using MidgardElite.Opening;
-using Engine.Model;
 using Engine.ViewModels;
 using Engine.WorldSave;
-using System.Timers;
 using MidgardElite.Commands;
 
 namespace MidgardElite
@@ -19,7 +11,7 @@ namespace MidgardElite
     {
         private static void Main(string[] args)
         {
-            string userInput;
+            string userInput = "";
             Console.ForegroundColor = ConsoleColor.White;       // The text will be White.
             ListBuilder.BuildLocationList();
             WelcomeScreen.Welcome(ref userInput);
@@ -34,7 +26,7 @@ namespace MidgardElite
                 Console.Write(GameSession.CurrentPlayer.Hp + "/" + GameSession.CurrentPlayer.MaxHp + " Hp" + " >");
                 
                 // Wait for the user to type something, and press the <Enter> key
-                string userInput = Console.ReadLine();
+                userInput = Console.ReadLine();
 
                 // If they typed a blank line, loop back and wait for input again
                 if (string.IsNullOrWhiteSpace(userInput))

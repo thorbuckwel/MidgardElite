@@ -15,7 +15,7 @@ namespace Engine.Sql
                       "[Inventory], [YCoord], [XCoord]) VALUES(@id, @name, @zone, @description, @xp, @hp, @maxHp, @mp, @maxMp, " +
                       "@str, @dex, @agi, @con, @int, @wis, @cha, @ac, @gold, @race, @class, @inventory, @yCoord, @xCoord)";
         public static string selectAllLocation = "SELECT* FROM Locations";
-        public static string updatePlayer = "UPDATE Players SET Name=@name, Zone=@zone, Description=@description, Xp=@xp, Hp=@hp, MaxHp=@maxHp, Mp=@mp, MaxMp=@maxMp, " +
+        public static string updatePlayer = "UPDATE Players SET ID=@id, Name=@name, Zone=@zone, Description=@description, Xp=@xp, Hp=@hp, MaxHp=@maxHp, Mp=@mp, MaxMp=@maxMp, " +
                       "Str=@str, Dex=@dex, Agi=@agi, Con=@con, Int=@int, Wis=@wis, Cha=@cha, Ac=@Ac, Gold=@gold, Race=@race, Class=@class, " +
                       "Inventory=@inventory, YCoord=@yCoord, XCoord=@xCoord" + " WHERE ID ="; // + GameSession.CurrentPlayer.ID.ToString();
         public static string selectAllPlayer = "SELECT * FROM Players";
