@@ -10,6 +10,7 @@ namespace Engine.CreateLoad
 {
    public static class ListBuilder
     {
+        #region Build Location List
         public static void BuildLocationList()
         {
             string connetionString = null;
@@ -17,7 +18,7 @@ namespace Engine.CreateLoad
 
             using (SqlConnection cnn = new SqlConnection(connetionString))
             {
-                string sql = SqlCommands.SelectAllLocation;
+                string sql = SqlCommands.UpdatePlayer;
                 cnn.Open();
 
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))
@@ -46,5 +47,6 @@ namespace Engine.CreateLoad
                 cnn.Close();
             }
         }
+        #endregion
     }
 }

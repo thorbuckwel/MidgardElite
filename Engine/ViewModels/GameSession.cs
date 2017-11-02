@@ -37,36 +37,36 @@ namespace Engine.ViewModels
             }
         }
 
-        public bool HasLocationToNorth
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord + 1) != null;
-            }
-        }
+        //public static bool HasLocationToNorth
+        //{
+        //    get
+        //    {
+        //        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord + 1) != null;
+        //    }
+        //}
 
-        public bool HasLocationToEast
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord + 1, CurrentLocation.YCoord) != null;
-            }
-        }
+        //public bool HasLocationToEast
+        //{
+        //    get
+        //    {
+        //        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord + 1, CurrentLocation.YCoord) != null;
+        //    }
+        //}
 
-        public bool HasLocationToSouth
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord - 1) != null;
-            }
-        }
+        //public bool HasLocationToSouth
+        //{
+        //    get
+        //    {
+        //        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord - 1) != null;
+        //    }
+        //}
 
-        public bool HasLocationToWest
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord - 1, CurrentLocation.YCoord) != null;
-            }
-        }
+        //public bool HasLocationToWest
+        //{
+        //    get
+        //    {
+        //        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord - 1, CurrentLocation.YCoord) != null;
+        //    }
+        //}
     }
 }

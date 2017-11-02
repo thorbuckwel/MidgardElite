@@ -8,12 +8,7 @@ using Engine.Model;
 namespace Engine.Class
 {
     public static class Barbarian
-    {
-        public static string HitDice()
-        {
-            return "1D6";
-        }
-
+    { 
         public static int DetermineBaB(ref Player _player)
         {            
             if (_player.Level == 1)

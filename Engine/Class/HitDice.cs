@@ -10,31 +10,24 @@ namespace Engine.Class
     {
         public static string GetHitDice(string pClass)
         {
-            if (pClass == "Barbarian")
-                return "1D12";
-            else if (pClass == "Bard")
-                return "1D8";
-            else if (pClass == "Cleric")
-                return "1D8";
-            else if (pClass == "Druid")
-                return "1D8";
-            else if (pClass == "Fighter")
-                return "1D10";
-            else if (pClass == "Monk")
-                return "1D8";
-            else if (pClass == "Paladin")
-                return "1D10";
-            else if (pClass == "Ranger")
-                return "1D10";
-            else if (pClass == "Rogue")
-                return "1D8";
-            else if (pClass == "Sorcerer")
-                return "1D6";
-            else if (pClass == "Wizard")
-                return "1D6";
-
+            switch (pClass)
+            {
+                case "Sorcerer":
+                case "Wizard":
+                    return "1D6";
+                case "Bard":
+                case "Druid":
+                case "Monk":
+                case "Rogue":
+                    return "1D8";
+                case "Fighter":
+                case "Paladin":
+                case "Ranger":
+                    return "1D10";
+                case "Barbarian":
+                    return "1D12";
+            } 
             return null;
-
         }
     }
 }

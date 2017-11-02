@@ -19,10 +19,11 @@ namespace MidgardElite
     {
         private static void Main(string[] args)
         {
+            string userInput;
             Console.ForegroundColor = ConsoleColor.White;       // The text will be White.
             ListBuilder.BuildLocationList();
-            WelcomeScreen.Welcome();
-
+            WelcomeScreen.Welcome(ref userInput);
+            
 
             #region While loop
             //Infinite loop, until the user types "exit"
