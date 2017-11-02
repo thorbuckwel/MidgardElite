@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Engine.Class;
 using Engine.Mod;
-using Engine.Class;
+using System.Collections.ObjectModel;
 
 namespace Engine.Model
 {
@@ -18,7 +13,7 @@ namespace Engine.Model
             Zone = zone;
             Name = name;
             Description = description;
-            XP = xp;            
+            XP = xp;
             Hp = hp;
             MaxHp = maxHp;
             Mp = mp;
@@ -41,7 +36,42 @@ namespace Engine.Model
             ChaMod = Modifers.DetermineStatMod(Cha);
             #endregion
 
-            Ac = ac;            
+            Ac = ac;
+            IsAlive = isAlive;
+            Gold = gold;
+            Inventory = inventory;
+        }
+
+        public Creature(int id, int zone, string name, string description, int xp, PlayerStats playerStats, int ac, bool isAlive, int gold, ObservableCollection<GameItem> inventory)
+        {
+            ID = id;
+            Zone = zone;
+            Name = name;
+            Description = description;
+            XP = xp;
+            Hp = playerStats.hp;
+            MaxHp = playerStats.maxHp;
+            Mp = playerStats.mp;
+            MaxMp = playerStats.maxMp;
+
+            #region Stats and Mods
+            Str = playerStats.str;
+            StrMod = Modifers.DetermineStatMod(Str);
+            Dex = playerStats.dex;
+            DexMod = Modifers.DetermineStatMod(Dex);
+            Agi = playerStats.agi;
+            AgiMod = Modifers.DetermineStatMod(Agi);
+            Con = playerStats.con;
+            ConMod = Modifers.DetermineStatMod(Con);
+            Int = playerStats.pInt;
+            IntMod = Modifers.DetermineStatMod(Int);
+            Wis = playerStats.wis;
+            WisMod = Modifers.DetermineStatMod(Wis);
+            Cha = playerStats.cha;
+            ChaMod = Modifers.DetermineStatMod(Cha);
+            #endregion
+
+            Ac = ac;
             IsAlive = isAlive;
             Gold = gold;
             Inventory = inventory;

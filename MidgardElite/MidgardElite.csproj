@@ -76,7 +76,6 @@
     <Compile Include="NewPlayer\DetermineNew.cs" />
     <Compile Include="NewPlayer\NameClassRace.cs" />
     <Compile Include="NewPlayer\NewPlayer.cs" />
-    <Compile Include="NewPlayer\PlayerStats.cs" />
     <Compile Include="Opening\WelcomeScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

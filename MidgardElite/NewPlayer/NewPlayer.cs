@@ -4,13 +4,14 @@ using Engine.ViewModels;
 using Engine.Sql;
 using Engine.WorldSave;
 
-
 namespace MidgardElite.NewPlayer
 {
     public static class NewPlayer
     {
         public static void MakePlayer(ref string userInput)
-        {           
+        {
+            PlayerStats newPlayerInformation = new PlayerStats();
+
             // Get last ID in Player table and then add 1
             int id = Id.DeterminePlayerId();
 
@@ -18,7 +19,16 @@ namespace MidgardElite.NewPlayer
             NameClassRace.GetName();
             NameClassRace.AssignClass(ref userInput);
             NameClassRace.AssignRace(ref userInput);
-            PlayerStats.DetermineStats(ref userInput);
+
+            do
+            {
+                newPlayerInformation.DetermineStats();
+                DisplayResults(newPlayerInformation);
+                userInput = Console.ReadLine();
+            } while (userInput.ToLower() == "n");
+
+
+            newPlayerInformation.DetermineOtherStats(NameClassRace.className);
 
             // Get a description
             string description = MakeDescription(ref userInput);
@@ -26,12 +36,23 @@ namespace MidgardElite.NewPlayer
             // Get the starting value for all new players
             CommonStats.Start();
 
-            GameSession.CurrentPlayer = new Player(id, CommonStats.zone, NameClassRace.name, NameClassRace.raceName, NameClassRace.className, description, CommonStats.xp, PlayerStats.hp, PlayerStats.maxHp,
-                                                    PlayerStats.mp, PlayerStats.maxMp, PlayerStats.str, PlayerStats.dex, PlayerStats.agi, PlayerStats.con, PlayerStats.pInt, PlayerStats.wis,
-                                                    PlayerStats.cha, CommonStats.ac, CommonStats.isAlive, CommonStats.gold, CommonStats.inventory, CommonStats.xCoord, CommonStats.yCoord);
+            GameSession.CurrentPlayer = new Player(id, CommonStats.zone, NameClassRace.name, NameClassRace.raceName, NameClassRace.className, description, CommonStats.xp, newPlayerInformation,
+                CommonStats.ac, CommonStats.isAlive, CommonStats.gold, CommonStats.inventory, CommonStats.xCoord, CommonStats.yCoord);
 
             SaveData.SavePlayer(GameSession.CurrentPlayer);
-        } 
+        }
+
+        public static void DisplayResults(PlayerStats newPlayerInformation)
+        {
+            Console.WriteLine("Your stats will be:");
+            Console.WriteLine("Strength : " + newPlayerInformation.str);
+            Console.WriteLine("Dexterity : " + newPlayerInformation.dex);
+            Console.WriteLine("Constitution : " + newPlayerInformation.con);
+            Console.WriteLine("Intelligence : " + newPlayerInformation.pInt);
+            Console.WriteLine("Wisdom : " + newPlayerInformation.wis);
+            Console.WriteLine("Charisma : " + newPlayerInformation.cha);
+            Console.WriteLine("Keep these scores? Y/N:");
+        }
 
         public static string MakeDescription(ref string userInput)
         {
@@ -45,5 +66,3 @@ namespace MidgardElite.NewPlayer
         }
     }
 }
-    
-

@@ -6,3 +6,12 @@ C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.
 C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.pdb
 C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\Engine.dll
 C:\Users\Thor\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\Engine.pdb
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.exe.config
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.exe
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\MidgardElite.pdb
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\Engine.dll
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\bin\Debug\Engine.pdb
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.csprojResolveAssemblyReference.cache
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.csproj.CoreCompileInputs.cache
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.exe
+C:\Users\Odin\Documents\GitHub\MidgardElite\MidgardElite\obj\Debug\MidgardElite.pdb

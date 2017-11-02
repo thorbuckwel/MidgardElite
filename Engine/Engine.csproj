@@ -78,6 +78,7 @@
     <Compile Include="Model\GameWorld.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\PlayerStats.cs" />
     <Compile Include="Model\Weapon.cs" />
     <Compile Include="Mod\Modifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
