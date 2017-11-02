@@ -41,7 +41,7 @@ namespace MidgardElite.NewPlayer
             if (userInput.ToLower() != "skip")
                 return userInput;
 
-            return null;
+            return userInput;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace MidgardElite.Opening
             Console.WriteLine("            ##########   ##    ##   ##   ##   ##  ##   ##    ##   ##        ");
             Console.WriteLine("            ##########     ####     #######   ##  ##     ####     ##        ");
             Console.WriteLine("________________________________________________________________________________");
-            NewPlayer.NewPlayer.MakePlayer(ref userInput);
+            DetermineNew.DetermineIfNew(ref userInput);
         }
     }
 }

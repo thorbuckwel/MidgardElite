@@ -10,7 +10,7 @@ namespace MidgardElite.NewPlayer
 {
     public static class DetermineNew
     {
-        public static void DetermineIfNew(string userInput)
+        public static void DetermineIfNew(ref string userInput)
         {
             bool validAnswer = false;           // This will stay false until the user's answers yes or no.
 
