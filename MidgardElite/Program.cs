@@ -4,24 +4,31 @@ using MidgardElite.Opening;
 using Engine.ViewModels;
 using Engine.WorldSave;
 using MidgardElite.Commands;
+using System.ComponentModel;
+using MidgardElite.Location;
 
 namespace MidgardElite
 {
-    class Program
+    public class Program
     {
+        private static GameSession DataContext;
+
         private static void Main(string[] args)
         {
             string userInput = "";
             Console.ForegroundColor = ConsoleColor.White;       // The text will be White.
-            ListBuilder.BuildLocationList();
+            ListBuilder.BuildLocationList();            
             WelcomeScreen.Welcome(ref userInput);
-            
+            GameSession _gameSession = new GameSession();
+            CurrentLocationClass.DisplayCurrentLocation();
 
             #region While loop
             //Infinite loop, until the user types "exit"
 
             while (true)
             {
+                
+
                 // Display a prompt, so the user knows to type something
                 Console.Write(GameSession.CurrentPlayer.Hp + "/" + GameSession.CurrentPlayer.MaxHp + " Hp" + " >");
                 
@@ -37,6 +44,8 @@ namespace MidgardElite
                 // Convert to lower-case, to make comparisons easier
                 string cleanedInput = userInput.ToLower();
 
+                // Now that the userInput as been saves and converted we need to do something with it.
+
                 // Save the current game data, and break out of the "while(true)" loop
                 if (cleanedInput == "exit")
                 {
@@ -47,15 +56,22 @@ namespace MidgardElite
                 }
 
                 // If the user typed something, try to determine what to do
-                //ParseInput(cleanedInput);
+                ParseInput(cleanedInput, _gameSession);
             }
             #endregion
         }
                 
-        private void ParseInput(string input)
+        private static void ParseInput(string input, GameSession _gameSession)
         {
             // Call the command class to figure out what to do
-            Command.CommandCase(input, GameSession.currentPlayer);
+            Command.CommandCase(input, GameSession.currentPlayer, _gameSession);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

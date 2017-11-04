@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Engine.Model;
+using Engine.ViewModels;
+using MidgardElite.Location;
 
 namespace MidgardElite.Commands
 {
-    public static class Command
+    public class Command
     {
-        public static void CommandCase(string input, Player _player)
+        public void CommandCase(string input, Player _player, GameSession _gamesession)
         {
             string[] commands = input.Split(null);
             string verb = commands[0].ToLower();
@@ -23,29 +25,22 @@ namespace MidgardElite.Commands
                 noun = "";
             }
 
-            //if (_player.Factions != Factions.Admin)
-            //{
-            //    NormalCommands(verb, noun);
-            //}
-            //else
-            //{
-            //    AdminCommands(verb, noun);
-            //}
+            NormalCommands(verb, noun, _gamesession);
         }
 
-        public static void NormalCommands(string verb, string noun)
-        {
+        public void NormalCommands(string verb, string noun, GameSession _gameSession)
+        {          
             switch (verb)
             {
                 case "look":
-                    if (noun != "")
-                    {
-                        //Look.Looking(noun);
-                    }
-                    else
-                    {
-                        //Look.Looking();
-                    }
+                    //if (noun != "")
+                    //{
+                    //    Look.Looking(noun);
+                    //}
+                    //else
+                    //{
+                     Look.Looking();
+                    //}
                     break;
                 case "help":
                     //HelpFile.HelpInfo();
@@ -57,16 +52,20 @@ namespace MidgardElite.Commands
                     //Get.GetCommand(noun, Player._player);
                     break;
                 case "north":
-                    //PlayerMove.MoveTo(verb);
+                    _gameSession.MoveNorth();
+                    CurrentLocationClass.DisplayCurrentLocation();                    
                     break;
                 case "east":
-                    //PlayerMove.MoveTo(verb);
+                    _gameSession.MoveEast();
+                    CurrentLocationClass.DisplayCurrentLocation();
                     break;
                 case "south":
-                    //PlayerMove.MoveTo(verb);
+                    _gameSession.MoveSouth();
+                    CurrentLocationClass.DisplayCurrentLocation();
                     break;
                 case "west":
-                    //PlayerMove.MoveTo(verb);
+                    _gameSession.MoveWest();
+                    CurrentLocationClass.DisplayCurrentLocation();
                     break;
                 case "inventory":
                     //Inventory.Inv(Player._player);
@@ -86,7 +85,7 @@ namespace MidgardElite.Commands
             }
         }
 
-        public static void AdminCommands(string verb, string noun)
+        public void AdminCommands(string verb, string noun, GameSession _gameSession)
         {
             switch (verb)
             {
@@ -97,7 +96,7 @@ namespace MidgardElite.Commands
                     //Spawn.WhatToSpawn();
                     break;
                 default:
-                    NormalCommands(verb, noun);
+                    NormalCommands(verb, noun, _gameSession);
                     break;
 
             }

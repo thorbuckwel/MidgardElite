@@ -3,6 +3,7 @@ using Engine.Model;
 using Engine.ViewModels;
 using Engine.Sql;
 using Engine.WorldSave;
+using MidgardElite.Location;
 
 namespace MidgardElite.NewPlayer
 {
@@ -38,7 +39,7 @@ namespace MidgardElite.NewPlayer
 
             GameSession.CurrentPlayer = new Player(id, CommonStats.zone, NameClassRace.name, NameClassRace.raceName, NameClassRace.className, description, CommonStats.xp, newPlayerInformation,
                 CommonStats.ac, CommonStats.isAlive, CommonStats.gold, CommonStats.inventory, CommonStats.xCoord, CommonStats.yCoord);
-
+            
             SaveData.SavePlayer(GameSession.CurrentPlayer);
         }
 

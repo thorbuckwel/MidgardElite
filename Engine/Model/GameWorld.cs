@@ -16,7 +16,7 @@ namespace Engine.Model
         //public static readonly List<Lo> Location = new List<Room>();          // To hold objects of rooms 
         #endregion
         public static readonly List<Location> _locations = new List<Location>();
-
+                
 
         public Location LocationAt(int zone, int xCord, int yCord)
         {

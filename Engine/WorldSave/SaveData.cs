@@ -63,6 +63,7 @@ namespace Engine.WorldSave
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
                     #region AddWithValue
+                    cmd.Parameters.AddWithValue("@id", _player.ID.ToString());
                     cmd.Parameters.AddWithValue("@name", _player.Name);
                     cmd.Parameters.AddWithValue("@zone", _player.Zone);
                     cmd.Parameters.AddWithValue("@description", _player.Description);
