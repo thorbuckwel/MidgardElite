@@ -107,4 +107,4 @@ namespace MidgardElite.Location
         }
         #endregion
     }
-}
+
