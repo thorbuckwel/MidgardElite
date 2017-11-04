@@ -11,7 +11,7 @@ namespace MidgardElite.Commands
 {
     public class Command
     {
-        public void CommandCase(string input, Player _player, GameSession _gamesession)
+        public static void CommandCase(string input, Player _player, GameSession _gamesession)
         {
             string[] commands = input.Split(null);
             string verb = commands[0].ToLower();
@@ -28,7 +28,7 @@ namespace MidgardElite.Commands
             NormalCommands(verb, noun, _gamesession);
         }
 
-        public void NormalCommands(string verb, string noun, GameSession _gameSession)
+        public static void NormalCommands(string verb, string noun, GameSession _gameSession)
         {          
             switch (verb)
             {
@@ -85,7 +85,7 @@ namespace MidgardElite.Commands
             }
         }
 
-        public void AdminCommands(string verb, string noun, GameSession _gameSession)
+        public static void AdminCommands(string verb, string noun, GameSession _gameSession)
         {
             switch (verb)
             {

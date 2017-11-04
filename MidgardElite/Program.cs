@@ -11,8 +11,6 @@ namespace MidgardElite
 {
     public class Program
     {
-        private static GameSession DataContext;
-
         private static void Main(string[] args)
         {
             string userInput = "";
@@ -56,22 +54,23 @@ namespace MidgardElite
                 }
 
                 // If the user typed something, try to determine what to do
-                ParseInput(cleanedInput, _gameSession);
+                //ParseInput(cleanedInput, _gameSession);
             }
             #endregion
         }
                 
-        private static void ParseInput(string input, GameSession _gameSession)
+        private void ParseInput(string input, GameSession _gameSession)
         {
             // Call the command class to figure out what to do
             Command.CommandCase(input, GameSession.currentPlayer, _gameSession);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //protected virtual void OnPropertyChanged(string propertyName)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 }
+
