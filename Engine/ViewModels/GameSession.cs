@@ -56,7 +56,12 @@ namespace Engine.ViewModels
         {
             get
             {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord + 1, CurrentLocation.YCoord) != null;
+                foreach (string e in GameSession.CurrentLocation.Exits)
+                {
+                    if (e == "E")
+                        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord + 1, CurrentLocation.YCoord) != null;                    
+                }
+                return false;                
             }
         }
 
@@ -64,7 +69,12 @@ namespace Engine.ViewModels
         {
             get
             {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord - 1) != null;
+                foreach (string e in GameSession.CurrentLocation.Exits)
+                {
+                    if (e == "S")
+                        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord, CurrentLocation.YCoord - 1) != null;
+                }
+                return false;
             }
         }
 
@@ -72,7 +82,12 @@ namespace Engine.ViewModels
         {
             get
             {
-                return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord - 1, CurrentLocation.YCoord) != null;
+                foreach (string e in GameSession.CurrentLocation.Exits)
+                {
+                    if (e == "W")
+                        return CurrentWorld.LocationAt(CurrentLocation.Zone, CurrentLocation.XCoord - 1, CurrentLocation.YCoord) != null;
+                }
+                return false;
             }
         }
         #endregion

@@ -1,4 +1,5 @@
 ﻿using System;
+using MidgardElite.CreateLoad;
 
 namespace MidgardElite.NewPlayer
 {
@@ -20,10 +21,10 @@ namespace MidgardElite.NewPlayer
 
                 if (userInput.ToLower() == "no" || userInput.ToLower() == "n")
                 {
-                    //validAnswer = true;
-                    //Console.WriteLine("What is your name?");
-                    //userInput = SplitWord.FirstCharToUpper(Console.ReadLine());
-                    //Load.LoadGameData(userInput.ToLower());         // Go to the Load class and exacute the LoadGame method.
+                    validAnswer = true;
+
+                    // Build Player Class
+                    BuildPlayer.BuildFromDatabase();                       
                 }
                 else if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
                 {

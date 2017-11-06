@@ -42,7 +42,8 @@ namespace MidgardElite
                 // Convert to lower-case, to make comparisons easier
                 string cleanedInput = userInput.ToLower();
 
-                // Now that the userInput as been saves and converted we need to do something with it.
+                // Now that the userInput as been saved and converted we need to do something with it.
+                Commands.Command.CommandCase(userInput, GameSession.CurrentPlayer, _gameSession);
 
                 // Save the current game data, and break out of the "while(true)" loop
                 if (cleanedInput == "exit")
