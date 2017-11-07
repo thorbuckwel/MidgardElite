@@ -89,6 +89,7 @@
     <Compile Include="Race\Halfling.cs" />
     <Compile Include="Race\Half_elf.cs" />
     <Compile Include="Race\Human.cs" />
+    <Compile Include="Searches\WorldSearch.cs" />
     <Compile Include="Sql\Id.cs" />
     <Compile Include="Sql\SqlCommands.cs" />
     <Compile Include="WordFormat\SplitWord.cs" />
@@ -96,7 +97,9 @@
     <Compile Include="Table\Tables.cs" />
     <Compile Include="ViewModels\GameSession.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DbBackup\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\IDs.txt" />
     <Content Include="Docs\ToDoList.txt" />

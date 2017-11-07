@@ -26,8 +26,24 @@ namespace MidgardElite.Location
 
             foreach (string e in GameSession.CurrentLocation.Exits)
             {
-
-                _currentExits = _currentExits + e.ToString();
+                #region Assign Full Exit Name
+                if (e == "N")
+                {
+                    _currentExits = _currentExits + "North";
+                }
+                else if (e == "E")
+                {
+                    _currentExits = _currentExits + "East";
+                }
+                else if (e == "S")
+                {
+                    _currentExits = _currentExits + "South";
+                }
+                else if (e == "W")
+                {
+                    _currentExits = _currentExits + "West";
+                }
+                #endregion
 
                 if (count < GameSession.CurrentLocation.Exits.Count())
                     _currentExits = _currentExits + ", ";

@@ -9,7 +9,8 @@ namespace Engine.Model
     public class Location
     {
         public List<String> _exits;
-        public Location(int id, string name, int zone, int xCoord, int yCoord, string description, string climate, string terrain, string effect, string exits)
+        public Location(int id, string name, int zone, int xCoord, int yCoord, string description, string climate, string terrain, string effect, string exits,
+                        string teleportOut, string teleportIn)
         {
             ID = id;
             Name = name;
@@ -21,7 +22,8 @@ namespace Engine.Model
             Terrain = terrain;
             Effect = effect;
             Exits = BuildExits(exits);
-            Teleport = null;
+            TeleportOut = teleportOut;
+            TeleportIn = teleportIn;
         }
 
         public int ID { get; set; }
@@ -34,7 +36,8 @@ namespace Engine.Model
         public string Terrain { get; set; }
         public string Effect { get; set; }
         public List<String> Exits { get { return _exits; } set { _exits = value; } }
-        public string Teleport { get; set; }
+        public string TeleportOut { get; set; }
+        public string TeleportIn { get; set; }
 
         public List<String> BuildExits(string exit)
         {

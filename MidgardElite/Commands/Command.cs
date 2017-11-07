@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Engine.Model;
 using Engine.ViewModels;
 using MidgardElite.Location;
+using Engine.Searches;
 
 namespace MidgardElite.Commands
 {
@@ -81,6 +82,11 @@ namespace MidgardElite.Commands
                     break;
                 case "save":
                     //SaveData.SaveGameData(Player._player);
+                    break;
+                case "enter":
+                    if (verb != null)
+                        WorldSearch.GetTeleportLocation(noun);
+                    CurrentLocationClass.DisplayCurrentLocation();
                     break;
             }
         }

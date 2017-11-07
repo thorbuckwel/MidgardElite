@@ -91,8 +91,6 @@ namespace Engine.WorldSave
                     command.Parameters.AddWithValue("@yCoord", _player.YCoord);
                     command.Parameters.AddWithValue("@xCoord", _player.XCoord);
                     #endregion
-
-                    command.ExecuteNonQuery();
                 }
                 connection.Close();
             }

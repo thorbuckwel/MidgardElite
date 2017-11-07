@@ -39,9 +39,11 @@ namespace Engine.CreateLoad
                         string terrain = reader["Terrain"].ToString();
                         string effect = reader["Effect"].ToString();
                         string exits = reader["Exits"].ToString();
+                        string teleportOut = reader["TeleportOut"].ToString();
+                        string teleportIn = reader["TeleportIn"].ToString();
 
                         #endregion
-                        GameWorld._locations.Add(new Location(id, name, zone, xCord, yCord, description, climate, terrain, effect, exits));
+                        GameWorld._locations.Add(new Location(id, name, zone, xCord, yCord, description, climate, terrain, effect, exits, teleportOut, teleportIn));
                     }
                     
                 }
