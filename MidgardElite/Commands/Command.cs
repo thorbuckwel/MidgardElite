@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Engine.Model;
-using Engine.ViewModels;
+﻿using Engine.Creatures.Players;
+using Engine.Session;
 using MidgardElite.Location;
-using Engine.Searches;
 
 namespace MidgardElite.Commands
 {

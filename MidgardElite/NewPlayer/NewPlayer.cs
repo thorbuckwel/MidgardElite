@@ -1,9 +1,8 @@
 ﻿using System;
-using Engine.Model;
-using Engine.ViewModels;
-using Engine.Sql;
-using Engine.WorldSave;
-using MidgardElite.Location;
+using Engine.Session;
+using Engine.Utility.SaveLoad;
+using Engine.Creatures.Players;
+using Engine.Creatures;
 
 namespace MidgardElite.NewPlayer
 {
@@ -12,9 +11,6 @@ namespace MidgardElite.NewPlayer
         public static void MakePlayer(ref string userInput)
         {
             PlayerStats newPlayerInformation = new PlayerStats();
-
-            // Get last ID in Player table and then add 1
-            int id = Id.DeterminePlayerId();
 
             // Determine what kind of character the user wants
             NameClassRace.GetName();
@@ -35,10 +31,15 @@ namespace MidgardElite.NewPlayer
             string description = MakeDescription(ref userInput);
 
             // Get the starting value for all new players
-            CommonStats.Start();
+            CreatureData creatureData = new CreatureData()
+            {
+                Name = NameClassRace.name,
+                Description = description
+            };
+            newPlayerInformation.Race = NameClassRace.raceName;
+            newPlayerInformation.Class = NameClassRace.className;
 
-            GameSession.CurrentPlayer = new Player(id, CommonStats.zone, NameClassRace.name, NameClassRace.raceName, NameClassRace.className, description, CommonStats.xp, newPlayerInformation,
-                CommonStats.ac, CommonStats.isAlive, CommonStats.gold, CommonStats.inventory, CommonStats.xCoord, CommonStats.yCoord);
+            GameSession.CurrentPlayer = PlayerFactory.Create(creatureData, newPlayerInformation);
             
             SaveData.SavePlayer(GameSession.CurrentPlayer);
         }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Engine.Session;
+using System;
 using System.Linq;
-using Engine.ViewModels;
 
 namespace MidgardElite.Location
 {
