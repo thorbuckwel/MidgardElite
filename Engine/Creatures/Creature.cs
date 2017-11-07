@@ -138,7 +138,7 @@ namespace Engine.Creatures
         public int Fortitude { get; set; }
         public int Reflex { get; set; }
         public int Will { get; set; }
-        public int BAB { get; set; }
+        public int BaseAttackBonus { get; set; }
 
         public int FortBS { get; set; }
         public int WillBS { get; set; }

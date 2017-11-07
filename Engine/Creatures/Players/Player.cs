@@ -1,6 +1,4 @@
 ﻿using Engine.Creatures.Players.Classes;
-using Engine.Items;
-using System.Collections.ObjectModel;
 
 namespace Engine.Creatures.Players
 {
@@ -36,10 +34,13 @@ namespace Engine.Creatures.Players
             Level = Tables.DetermineLevel(playerStats.ExperiencePoints);
             XCoord = playerStats.xCoord;
             YCoord = playerStats.yCoord;
+
+            PlayerClass = PlayerClassFactory.GetPlayerClass(Class);
         }
 
         public string Race { get; set; }
         public string Class { get; set; }
+        internal IPlayerClass PlayerClass;
 
         public int Level { get; set; }
 
@@ -52,84 +53,12 @@ namespace Engine.Creatures.Players
             Fortitude = GetStatModifier(Constitution);
             Reflex = GetStatModifier(Dexterity);
             Will = GetStatModifier(Wisdom);
-            
-            if (Class == "Barbarian")
-            {
-                BAB = Barbarian.DetermineBaB(this);
-                FortBS = Barbarian.DetermineFort(this);
-                RefBS = Barbarian.DetermineRefMod(this);
-                WillBS = Barbarian.DetermineWillMod(this);
-            }
-            else if (Class == "Bard")
-            {
-                BAB = Bard.DetermineBaB(this);
-                FortBS = Bard.DetermineFort(this);
-                RefBS = Bard.DetermineRefMod(this);
-                WillBS = Bard.DetermineWillMod(this);
-            }
-            else if (Class == "Cleric")
-            {
-                BAB = Cleric.DetermineBaB(this);
-                FortBS = Cleric.DetermineFort(this);
-                RefBS = Cleric.DetermineRefMod(this);
-                WillBS = Cleric.DetermineWillMod(this);
-            }
-            else if (Class == "Druid")
-            {
-                BAB = Druid.DetermineBaB(this);
-                FortBS = Druid.DetermineFort(this);
-                RefBS = Druid.DetermineRefMod(this);
-                WillBS = Druid.DetermineWillMod(this);
-            }
-            else if (Class == "Fighter")
-            {
-                BAB = Fighter.DetermineBaB(this);
-                FortBS = Fighter.DetermineFort(this);
-                RefBS = Fighter.DetermineRefMod(this);
-                WillBS = Fighter.DetermineWillMod(this);
-            }
-            else if (Class == "Monk")
-            {
-                BAB = Monk.DetermineBaB(this);
-                FortBS = Monk.DetermineFort(this);
-                RefBS = Monk.DetermineRefMod(this);
-                WillBS = Monk.DetermineWillMod(this);
-            }
-            else if (Class == "Paladin")
-            {
-                BAB = Paladin.DetermineBaB(this);
-                FortBS = Paladin.DetermineFort(this);
-                RefBS = Paladin.DetermineRefMod(this);
-                WillBS = Paladin.DetermineWillMod(this);
-            }
-            else if (Class == "Ranger")
-            {
-                BAB = Ranger.DetermineBaB(this);
-                FortBS = Ranger.DetermineFort(this);
-                RefBS = Ranger.DetermineRefMod(this);
-                WillBS = Ranger.DetermineWillMod(this);
-            }
-            else if (Class == "Rogue")
-            {
-                BAB = Rogue.DetermineBaB(this);
-                FortBS = Rogue.DetermineFort(this);
-                RefBS = Rogue.DetermineRefMod(this);
-                WillBS = Rogue.DetermineWillMod(this);
-            }
-            else if (Class == "Sorcerer")
-            {
-                BAB = Sorcerer.DetermineBaB(this);
-                FortBS = Sorcerer.DetermineFort(this);
-                RefBS = Sorcerer.DetermineRefMod(this);
-                WillBS = Sorcerer.DetermineWillMod(this);
-            }
-            else if (Class == "Wizard")
-            {
-                BAB = Wizard.DetermineBaB(this);
-                FortBS = Wizard.DetermineFort(this);
-                RefBS = Wizard.DetermineRefMod(this);
-                WillBS = Wizard.DetermineWillMod(this);
-            }
+
+            //Assign values based on Player's Level and Class
+            BaseAttackBonus = PlayerClass.GetClassBaseAttackBonus(Level);
+            FortBS = PlayerClass.GetClassFortitudeModifier(Level);
+            RefBS = PlayerClass.GetClassReflexModifier(Level);
+            WillBS = PlayerClass.GetClassWillModifier(Level);
 
         }
         #endregion

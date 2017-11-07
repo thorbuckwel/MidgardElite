@@ -1,110 +1,110 @@
 ﻿namespace Engine.Creatures.Players.Classes
 {
-    public static class Rogue
+    public class Rogue : IPlayerClass
     {
-        public static int DetermineBaB(Player _player)
+        public int GetClassBaseAttackBonus(int playerLevel)
         {
-            if (_player.Level == 1)
+            if (playerLevel == 1)
                 return 0;
-            else if (_player.Level == 2)
+            else if (playerLevel == 2)
                 return 1;
-            else if (_player.Level == 3)
+            else if (playerLevel == 3)
                 return 2;
-            else if (_player.Level > 4 && _player.Level <= 5)
+            else if (playerLevel > 4 && playerLevel <= 5)
                 return 3;
-            else if (_player.Level == 6)
+            else if (playerLevel == 6)
                 return 4;
-            else if (_player.Level == 7)
+            else if (playerLevel == 7)
                 return 5;
-            else if (_player.Level > 7 && _player.Level <= 9)
+            else if (playerLevel > 7 && playerLevel <= 9)
                 return 6;
-            else if (_player.Level == 10)
+            else if (playerLevel == 10)
                 return 7;
-            else if (_player.Level == 11)
+            else if (playerLevel == 11)
                 return 8;
-            else if (_player.Level > 11 && _player.Level <= 13)
+            else if (playerLevel > 11 && playerLevel <= 13)
                 return 9;
-            else if (_player.Level == 14)
+            else if (playerLevel == 14)
                 return 10;
-            else if (_player.Level == 15)
+            else if (playerLevel == 15)
                 return 11;
-            else if (_player.Level > 15 && _player.Level <= 17)
+            else if (playerLevel > 15 && playerLevel <= 17)
                 return 12;
-            else if (_player.Level == 18)
+            else if (playerLevel == 18)
                 return 13;
-            else if (_player.Level == 19)
+            else if (playerLevel == 19)
                 return 14;
-            else if (_player.Level == 20)
+            else if (playerLevel == 20)
                 return 15;
 
             return 0;
         }
 
-        public static int DetermineFort(Player _player)
+        public int GetClassFortitudeModifier(int playerLevel)
         {
-            if (_player.Level >= 1 && _player.Level <= 2)
+            if (playerLevel >= 1 && playerLevel <= 2)
                 return 0;
-            else if (_player.Level > 2 && _player.Level <= 5)
+            else if (playerLevel > 2 && playerLevel <= 5)
                 return 1;
-            else if (_player.Level > 5 && _player.Level <= 8)
+            else if (playerLevel > 5 && playerLevel <= 8)
                 return 2;
-            else if (_player.Level > 8 && _player.Level <= 11)
+            else if (playerLevel > 8 && playerLevel <= 11)
                 return 3;
-            else if (_player.Level > 11 && _player.Level <= 14)
+            else if (playerLevel > 11 && playerLevel <= 14)
                 return 4;
-            else if (_player.Level > 14 && _player.Level <= 17)
+            else if (playerLevel > 14 && playerLevel <= 17)
                 return 5;
-            else if (_player.Level > 17 && _player.Level <= 20)
+            else if (playerLevel > 17 && playerLevel <= 20)
                 return 6;
 
 
             return 0;
         }
 
-        public static int DetermineRefMod(Player _player)
+        public int GetClassReflexModifier(int playerLevel)
         {
-            if (_player.Level == 1)
+            if (playerLevel == 1)
                 return 2;
-            else if (_player.Level < 1 && _player.Level <= 3)
+            else if (playerLevel < 1 && playerLevel <= 3)
                 return 3;
-            else if (_player.Level > 3 && _player.Level <= 5)
+            else if (playerLevel > 3 && playerLevel <= 5)
                 return 4;
-            else if (_player.Level > 5 && _player.Level <= 7)
+            else if (playerLevel > 5 && playerLevel <= 7)
                 return 5;
-            else if (_player.Level > 7 && _player.Level <= 9)
+            else if (playerLevel > 7 && playerLevel <= 9)
                 return 6;
-            else if (_player.Level > 9 && _player.Level <= 11)
+            else if (playerLevel > 9 && playerLevel <= 11)
                 return 7;
-            else if (_player.Level > 11 && _player.Level <= 13)
+            else if (playerLevel > 11 && playerLevel <= 13)
                 return 8;
-            else if (_player.Level > 13 && _player.Level <= 15)
+            else if (playerLevel > 13 && playerLevel <= 15)
                 return 9;
-            else if (_player.Level > 15 && _player.Level <= 17)
+            else if (playerLevel > 15 && playerLevel <= 17)
                 return 10;
-            else if (_player.Level > 17 && _player.Level <= 19)
+            else if (playerLevel > 17 && playerLevel <= 19)
                 return 11;
-            else if (_player.Level == 20)
+            else if (playerLevel == 20)
                 return 12;
 
             return 0;
 
         }
 
-        public static int DetermineWillMod(Player _player)
+        public int GetClassWillModifier(int playerLevel)
         {
-            if (_player.Level >= 1 && _player.Level <= 2)
+            if (playerLevel >= 1 && playerLevel <= 2)
                 return 0;
-            else if (_player.Level > 2 && _player.Level <= 5)
+            else if (playerLevel > 2 && playerLevel <= 5)
                 return 1;
-            else if (_player.Level > 5 && _player.Level <= 8)
+            else if (playerLevel > 5 && playerLevel <= 8)
                 return 2;
-            else if (_player.Level > 8 && _player.Level <= 11)
+            else if (playerLevel > 8 && playerLevel <= 11)
                 return 3;
-            else if (_player.Level > 11 && _player.Level <= 14)
+            else if (playerLevel > 11 && playerLevel <= 14)
                 return 4;
-            else if (_player.Level > 14 && _player.Level <= 17)
+            else if (playerLevel > 14 && playerLevel <= 17)
                 return 5;
-            else if (_player.Level > 17 && _player.Level <= 20)
+            else if (playerLevel > 17 && playerLevel <= 20)
                 return 6;
 
             return 0;

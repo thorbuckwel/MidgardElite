@@ -62,8 +62,10 @@
     <Compile Include="Creatures\Players\Classes\Druid.cs" />
     <Compile Include="Creatures\Players\Classes\Fighter.cs" />
     <Compile Include="Creatures\Players\Classes\HitDice.cs" />
+    <Compile Include="Creatures\Players\Classes\IPlayerClass.cs" />
     <Compile Include="Creatures\Players\Classes\Monk.cs" />
     <Compile Include="Creatures\Players\Classes\Paladin.cs" />
+    <Compile Include="Creatures\Players\Classes\PlayerClassFactory.cs" />
     <Compile Include="Creatures\Players\Classes\Ranger.cs" />
     <Compile Include="Creatures\Players\Classes\Rogue.cs" />
     <Compile Include="Creatures\Players\Classes\Sorcerer.cs" />
