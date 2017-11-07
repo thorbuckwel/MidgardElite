@@ -30,7 +30,7 @@ namespace Engine.Utility.SQL
                     }
                     connection.Close();
                                                       
-                    newID = Int32.Parse(ids.Last()) + 1; ;    // Take the last Id and then add 1.
+                    newID = Int32.Parse(ids.Last()) + 1;    // Take the last Id and then add 1.
                 }
 
                 return newID;

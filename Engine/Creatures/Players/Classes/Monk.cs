@@ -2,7 +2,7 @@
 {
     public static class Monk
     {
-        public static int DetermineBaB(ref Player _player)
+        public static int DetermineBaB(Player _player)
         {
             if (_player.Level == 1)
                 return 0;
@@ -40,7 +40,7 @@
             return 0;
         }
 
-        public static int DetermineFort(ref Player _player)
+        public static int DetermineFort(Player _player)
         {
             if (_player.Level == 1)
                 return 2;
@@ -68,7 +68,7 @@
             return 0;
         }
 
-        public static int DetermineRefMod(ref Player _player)
+        public static int DetermineRefMod(Player _player)
         {
             if (_player.Level == 1)
                 return 2;
@@ -96,7 +96,7 @@
             return 0;
         }
 
-        public static int DetermineWillMod(ref Player _player)
+        public static int DetermineWillMod(Player _player)
         {
             if (_player.Level == 1)
                 return 2;

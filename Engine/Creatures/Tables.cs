@@ -11,45 +11,45 @@ namespace Engine.Creatures
           
         public static void DetermineLevel(ref Player _player)
         {
-            if (_player.XP < 3000)
+            if (_player.ExperiencePoints < 3000)
                 _player.Level = 1;
-            else if (_player.XP < 7500)
+            else if (_player.ExperiencePoints < 7500)
                 _player.Level = 2;
-            else if (_player.XP < 14000)
+            else if (_player.ExperiencePoints < 14000)
                 _player.Level = 3;
-            else if (_player.XP < 23000)
+            else if (_player.ExperiencePoints < 23000)
                 _player.Level = 4;
-            else if (_player.XP < 35000)
+            else if (_player.ExperiencePoints < 35000)
                 _player.Level = 5;
-            else if (_player.XP < 53000)
+            else if (_player.ExperiencePoints < 53000)
                 _player.Level = 6;
-            else if (_player.XP < 77000)
+            else if (_player.ExperiencePoints < 77000)
                 _player.Level = 7;
-            else if (_player.XP < 115000)
+            else if (_player.ExperiencePoints < 115000)
                 _player.Level = 8;
-            else if (_player.XP < 160000)
+            else if (_player.ExperiencePoints < 160000)
                 _player.Level = 9;
-            else if (_player.XP < 235000)
+            else if (_player.ExperiencePoints < 235000)
                 _player.Level = 10;
-            else if (_player.XP < 330000)
+            else if (_player.ExperiencePoints < 330000)
                 _player.Level = 11;
-            else if (_player.XP < 475000)
+            else if (_player.ExperiencePoints < 475000)
                 _player.Level = 12;
-            else if (_player.XP < 665000)
+            else if (_player.ExperiencePoints < 665000)
                 _player.Level = 13;
-            else if (_player.XP < 955000)
+            else if (_player.ExperiencePoints < 955000)
                 _player.Level = 14;
-            else if (_player.XP < 1350000)
+            else if (_player.ExperiencePoints < 1350000)
                 _player.Level = 15;
-            else if (_player.XP < 1900000)
+            else if (_player.ExperiencePoints < 1900000)
                 _player.Level = 16;
-            else if (_player.XP < 2700000)
+            else if (_player.ExperiencePoints < 2700000)
                 _player.Level = 17;
-            else if (_player.XP < 3850000)
+            else if (_player.ExperiencePoints < 3850000)
                 _player.Level = 18;
-            else if (_player.XP < 5350000)
+            else if (_player.ExperiencePoints < 5350000)
                 _player.Level = 19;
-            else if (_player.XP < 8000000)
+            else if (_player.ExperiencePoints < 8000000)
                 _player.Level = 20;
         }
 

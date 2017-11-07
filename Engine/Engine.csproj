@@ -80,7 +80,7 @@
     <Compile Include="Worlds\GameWorld.cs" />
     <Compile Include="Worlds\Location.cs" />
     <Compile Include="Creatures\Players\Player.cs" />
-    <Compile Include="Creatures\Players\PlayerStats.cs" />
+    <Compile Include="Creatures\Players\PlayerData.cs" />
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="Creatures\Modifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

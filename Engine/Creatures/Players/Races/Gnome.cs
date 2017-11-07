@@ -4,9 +4,9 @@
     {
         public static void ChangeStats(ref Creature creature)
         {
-            creature.Con += 2;
-            creature.Cha += 2;
-            creature.Str += -2;
+            creature.Constitution += 2;
+            creature.Charisma += 2;
+            creature.Strength += -2;
         }
     }
 }

@@ -4,9 +4,9 @@
     {
         public static void DetermineCombatMods(ref Creature creature)
         {
-            creature.Fortitude = creature.Con;
-            creature.Reflex = creature.Dex;
-            creature.Will = creature.Wis;
+            creature.Fortitude = creature.Constitution;
+            creature.Reflex = creature.Dexterity;
+            creature.Will = creature.Wisdom;
         }
 
         public static void DetermineAC(ref Creature creature)
