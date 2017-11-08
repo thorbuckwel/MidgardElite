@@ -1,11 +1,10 @@
 ﻿using System;
-using Engine.CreateLoad;
 using MidgardElite.Opening;
-using Engine.ViewModels;
-using Engine.WorldSave;
 using MidgardElite.Commands;
-using System.ComponentModel;
 using MidgardElite.Location;
+using Engine.Session;
+using Engine.Utility;
+using Engine.Utility.SaveLoad;
 
 namespace MidgardElite
 {
@@ -28,7 +27,7 @@ namespace MidgardElite
                 
 
                 // Display a prompt, so the user knows to type something
-                Console.Write(GameSession.CurrentPlayer.Hp + "/" + GameSession.CurrentPlayer.MaxHp + " Hp" + " >");
+                Console.Write(GameSession.CurrentPlayer.HitPoints + "/" + GameSession.CurrentPlayer.MaxHitPoints + " Hp" + " >");
                 
                 // Wait for the user to type something, and press the <Enter> key
                 userInput = Console.ReadLine();

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using Engine.Sql;
-using System.Data.SqlClient;
-using Engine.WordFormat;
 using System.Linq;
-using Engine.Enum;
+using Engine.Creatures.Players;
+using Engine.Utility.Formating;
 
 namespace MidgardElite.NewPlayer
 {
@@ -16,17 +13,17 @@ namespace MidgardElite.NewPlayer
 
         public static void GetName()
         {            
-            bool hasName = true;
-            while (hasName == true)
+            bool nameAlreadyTaken = true;
+            while (nameAlreadyTaken == true)
             {
                 Console.WriteLine("Give me your name.");
                 Console.Write("> ");
 
                 name = Console.ReadLine();
                 name = SplitWord.FirstCharToUpper(name);
-                hasName = CheckName(name);
+                nameAlreadyTaken = PlayerFactory.IsNameAvailable(name);
 
-                if (hasName == true)
+                if (nameAlreadyTaken == true)
                 {
                     Console.WriteLine("Name already in use please choose another name.");
                 }
@@ -37,41 +34,7 @@ namespace MidgardElite.NewPlayer
             }            
         }
 
-        public static Boolean CheckName(string name)
-        {
-            bool has = false;
-            List<String> names = new List<String>();
-            string connetionString = null;
-            connetionString = SqlCommands.ConnectionString;
-
-            using (var connection = new SqlConnection(connetionString))
-            {
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandText = SqlCommands.SelectAllPlayer;
-                    connection.Open();
-
-                    var reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        string dbName = reader["Name"].ToString();
-                        names.Add(dbName);
-                    }
-                    connection.Close();
-                }
-
-                foreach (string n in names)
-                {
-                    if (n == name)
-                        has = true;
-                    else
-                        has = false;
-                }
-
-                return has;
-            }
-        }
+        
 
         public static void AssignClass(ref string userInput)
         {
@@ -82,7 +45,7 @@ namespace MidgardElite.NewPlayer
                 Console.WriteLine("Choose a Class");
                 string _class = null;
 
-                foreach (string c in Enum.GetNames(typeof(ClassEnum)))
+                foreach (string c in Enum.GetNames(typeof(PlayerClass)))
                 {
                     if (_class == null)
                         _class = c;
@@ -96,7 +59,7 @@ namespace MidgardElite.NewPlayer
                 Console.Write("Class -  ");
                 userInput = Console.ReadLine();
 
-                if (!Enum.IsDefined(typeof(ClassEnum), userInput))
+                if (!Enum.IsDefined(typeof(PlayerClass), userInput))
                 {
                     Console.WriteLine(userInput + " is not a valid Class");
                 }
@@ -118,7 +81,7 @@ namespace MidgardElite.NewPlayer
                 Console.WriteLine("Choose a Race");
                 string _race = null;
 
-                foreach (string c in Enum.GetNames(typeof(RaceEnum)))
+                foreach (string c in Enum.GetNames(typeof(PlayerRace)))
                 {
                     if (_race == null)
                         _race = c;
@@ -133,7 +96,7 @@ namespace MidgardElite.NewPlayer
                 Console.Write("Race -  ");
                 userInput = Console.ReadLine();
 
-                if (!Enum.IsDefined(typeof(RaceEnum), userInput))
+                if (!Enum.IsDefined(typeof(PlayerRace), userInput))
                 {
                     Console.WriteLine(userInput + " is not a valid Class");
                 }

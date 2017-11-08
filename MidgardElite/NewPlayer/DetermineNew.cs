@@ -1,5 +1,6 @@
 ﻿using System;
-using MidgardElite.CreateLoad;
+using Engine.Session;
+using Engine.Creatures.Players;
 
 namespace MidgardElite.NewPlayer
 {
@@ -24,7 +25,9 @@ namespace MidgardElite.NewPlayer
                     validAnswer = true;
 
                     // Build Player Class
-                    BuildPlayer.BuildFromDatabase();                       
+                    Console.WriteLine("What is your charater's name?");
+                    userInput = Console.ReadLine();
+                    GameSession.CurrentPlayer = PlayerFactory.Load(playerName: userInput);
                 }
                 else if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
                 {
